@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miche van Essen - Leadership Training & Author</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-purple': '#2D1B3D',
+                        'warm-pink': '#E88EBF',
+                        'sage-green': '#7B9A7B',
+                        'cream': '#F7F3E9'
+                    },
+                    fontFamily: {
+                        'display': ['Georgia', 'serif'],
+                        'body': ['system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #E88EBF, #7B9A7B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: linear-gradient(135deg, #E88EBF, #7B9A7B);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #E88EBF, #7B9A7B);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+        }
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .scroll-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-deep-purple text-cream font-body">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-deep-purple/90 backdrop-blur-sm z-50 border-b border-warm-pink/20">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-display font-bold gradient-text">
+                    Miche van Essen
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-cream hover:text-warm-pink transition-colors">HOME</a>
+                    <a href="#about" class="nav-link text-cream hover:text-warm-pink transition-colors">ABOUT</a>
+                    <a href="#podcast" class="nav-link text-cream hover:text-warm-pink transition-colors">PODCAST</a>
+                    <a href="#cases" class="nav-link text-cream hover:text-warm-pink transition-colors">WORK</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-cream">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="#home" class="block py-2 text-cream hover:text-warm-pink transition-colors">HOME</a>
+                <a href="#about" class="block py-2 text-cream hover:text-warm-pink transition-colors">ABOUT</a>
+                <a href="#podcast" class="block py-2 text-cream hover:text-warm-pink transition-colors">PODCAST</a>
+                <a href="#cases" class="block py-2 text-cream hover:text-warm-pink transition-colors">WORK</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 lg:gap-24 items-center">
+            <div class="fade-in">
+                <h1 class="text-5xl md:text-7xl font-display font-bold mb-6">
+                    <span class="gradient-text">EMBRACING</span><br>
+                    <span class="text-cream">UNCERTAINTY</span><br>
+                    <span class="text-warm-pink">TOGETHER</span>
+                </h1>
+                <p class="text-xl mb-8 text-cream/80 leading-relaxed">
+                    I'm Miche (like quiche!) - a leadership trainer, author, and podcast host helping churches and faith-based organizations navigate change with courage and compassion.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button class="bg-warm-pink text-deep-purple px-8 py-4 rounded-full font-semibold hover:bg-warm-pink/90 transition-colors" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                        Get In Touch
+                    </button>
+                    <button class="border-2 border-warm-pink text-warm-pink px-8 py-4 rounded-full font-semibold hover:bg-warm-pink hover:text-deep-purple transition-colors">
+                        Listen to Deeper Currents
+                    </button>
+                </div>
+            </div>
+            <div class="fade-in">
+                <div class="bg-gradient-to-br from-warm-pink/20 to-sage-green/20 rounded-3xl p-8 backdrop-blur-sm border border-warm-pink/10">
+                    <div class="aspect-square bg-gradient-to-br from-warm-pink to-sage-green rounded-2xl flex items-center justify-center overflow-hidden">
+                        <img src="img/headshot.jpeg" alt="Miche van Essen" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section bg-gradient-to-br from-deep-purple to-deep-purple/80">
+        <div class="max-w-4xl mx-auto px-6 text-center fade-in">
+            <h2 class="text-4xl md:text-6xl font-display font-bold mb-8 gradient-text">
+                About Miche
+            </h2>
+            <p class="text-xl mb-8 text-cream/80 leading-relaxed">
+                My work centers on helping people navigate the space between certainty and faith - that uncomfortable but sacred territory where real growth happens. I specialize in supporting allies, and LGBTQ Christians who are seeking answers after leaving traditional church structures.
+            </p>
+            <div class="grid md:grid-cols-3 gap-8 mt-12">
+                <div class="bg-warm-pink/10 p-6 rounded-xl border border-warm-pink/20">
+                    <h3 class="text-2xl font-display font-bold mb-4 text-warm-pink">Leadership Training</h3>
+                    <p class="text-cream/70">Helping churches and faith-based nonprofits develop resonant leadership rooted in emotional intelligence and authentic connection.</p>
+                </div>
+                <div class="bg-sage-green/10 p-6 rounded-xl border border-sage-green/20">
+                    <h3 class="text-2xl font-display font-bold mb-4 text-sage-green">Author</h3>
+                    <p class="text-cream/70">My upcoming book "Let Her Speak" challenges rigid interpretive frameworks and creates space for marginalized voices to shine through.</p>
+                </div>
+                <div class="bg-warm-pink/10 p-6 rounded-xl border border-warm-pink/20">
+                    <h3 class="text-2xl font-display font-bold mb-4 text-warm-pink">Speaker</h3>
+                    <p class="text-cream/70">Speaking engagements that help communities embrace uncertainty as a pathway to deeper faith and more inclusive practices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Podcast Section -->
+    <section id="podcast" class="section pt-32">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-4xl md:text-6xl font-display font-bold mb-6">
+                    <span class="gradient-text">Deeper</span> <span class="text-cream">Currents</span>
+                </h2>
+                <p class="text-xl text-cream/80 max-w-3xl mx-auto leading-relaxed">
+                    A monthly podcast featuring in-depth conversations with specialists who challenge common misconceptions in their fields. We dive beneath surface assumptions to discover the deeper currents of truth flowing underneath.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <div class="bg-gradient-to-br from-warm-pink/20 to-sage-green/20 rounded-3xl p-8 backdrop-blur-sm border border-warm-pink/10">
+                        <div class="aspect-video bg-gradient-to-br from-warm-pink/30 to-sage-green/30 rounded-2xl flex items-center justify-center">
+                            <div class="text-4xl">🎙️</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <h3 class="text-3xl font-display font-bold mb-6 text-warm-pink">Recent Episodes</h3>
+                    <div class="space-y-6">
+                        <div class="border-l-4 border-warm-pink pl-6 py-4">
+                            <h4 class="text-xl font-semibold mb-2 text-cream">The Leadership Myth</h4>
+                            <p class="text-cream/70">Exploring why resonant leaders with high emotional intelligence outperform traditional command-and-control styles.</p>
+                        </div>
+                        <div class="border-l-4 border-sage-green pl-6 py-4">
+                            <h4 class="text-xl font-semibold mb-2 text-cream">Beyond Armchair Environmentalism</h4>
+                            <p class="text-cream/70">A deep dive into why simple environmental solutions often miss the complex reality of ecological systems.</p>
+                        </div>
+                    </div>
+                    <button class="mt-8 bg-warm-pink text-deep-purple px-8 py-4 rounded-full font-semibold hover:bg-warm-pink/90 transition-colors">
+                        Listen on Your Platform
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work/Cases Section -->
+    <section id="cases" class="section bg-gradient-to-br from-deep-purple to-deep-purple/80 pt-32">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-4xl md:text-6xl font-display font-bold mb-6 gradient-text">
+                    My Work
+                </h2>
+                <p class="text-xl text-cream/80 max-w-3xl mx-auto leading-relaxed">
+                    From leadership development to organizational change, I help faith-based communities navigate uncertainty with wisdom and grace.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-warm-pink/10 p-8 rounded-xl border border-warm-pink/20 fade-in">
+                    <h3 class="text-2xl font-display font-bold mb-4 text-warm-pink">Leadership Development</h3>
+                    <p class="text-cream/80 mb-6">Comprehensive training programs that move beyond traditional models to develop emotionally intelligent, resonant leaders who can navigate complexity with grace.</p>
+                    <ul class="space-y-2 text-cream/70">
+                        <li>• Executive coaching for senior pastors and nonprofit leaders</li>
+                        <li>• Team dynamics and conflict resolution</li>
+                        <li>• Organizational culture transformation</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-sage-green/10 p-8 rounded-xl border border-sage-green/20 fade-in">
+                    <h3 class="text-2xl font-display font-bold mb-4 text-sage-green">Speaking & Workshops</h3>
+                    <p class="text-cream/80 mb-6">Engaging presentations that challenge assumptions and create space for meaningful dialogue about faith, leadership, and social change.</p>
+                    <ul class="space-y-2 text-cream/70">
+                        <li>• Conference keynotes on embracing uncertainty</li>
+                        <li>• Workshop facilitation for church leadership teams</li>
+                        <li>• Retreat guidance for communities in transition</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-warm-pink/10 p-8 rounded-xl border border-warm-pink/20 fade-in">
+                    <h3 class="text-2xl font-display font-bold mb-4 text-warm-pink">Organizational Consulting</h3>
+                    <p class="text-cream/80 mb-6">Strategic guidance for churches and nonprofits navigating change, from policy development to community engagement strategies.</p>
+                    <ul class="space-y-2 text-cream/70">
+                        <li>• Inclusion and diversity strategy development</li>
+                        <li>• Change management for traditional organizations</li>
+                        <li>• Board development and governance</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-sage-green/10 p-8 rounded-xl border border-sage-green/20 fade-in">
+                    <h3 class="text-2xl font-display font-bold mb-4 text-sage-green">Writing & Content</h3>
+                    <p class="text-cream/80 mb-6">Thoughtful exploration of faith, leadership, and social justice through writing that challenges and inspires.</p>
+                    <ul class="space-y-2 text-cream/70">
+                        <li>• Book: "Let Her Speak" (forthcoming)</li>
+                        <li>• Articles on faith and social justice</li>
+                        <li>• Curriculum development for progressive faith communities</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="max-w-4xl mx-auto px-6 text-center fade-in">
+            <h2 class="text-4xl md:text-5xl font-display font-bold mb-8 gradient-text">
+                Let's Connect
+            </h2>
+            <p class="text-xl text-cream/80 mb-8 leading-relaxed">
+                Ready to explore what it means to embrace uncertainty together? I'd love to hear about your community's journey and discuss how we might work together.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-warm-pink text-deep-purple px-8 py-4 rounded-full font-semibold hover:bg-warm-pink/90 transition-colors">
+                    Schedule a Consultation
+                </button>
+                <button class="border-2 border-warm-pink text-warm-pink px-8 py-4 rounded-full font-semibold hover:bg-warm-pink hover:text-deep-purple transition-colors">
+                    Send an Email
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-warm-pink/20 py-8">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="text-cream/60">© 2025 Miche van Essen. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-deep-purple">
+            <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 5; // Adjust this value to control the offset
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll to top button visibility
+        const scrollToTopBtn = document.querySelector('.scroll-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+    </script>
+</body>
+</html>
